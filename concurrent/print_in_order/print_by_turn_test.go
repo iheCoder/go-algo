@@ -1,4 +1,4 @@
-package concurrent
+package print_in_order
 
 import (
 	"fmt"
@@ -9,7 +9,7 @@ import (
 // mutex 不行，难以保证同一个方法不会连续抢到
 // chan int 1也不行。要有一个获取锁解锁的过程，可是chan本身无法做到
 // two mutex。thread1 lock m1, unlock m2 finally, thread2 lock m2, unlock m1 finally. 这不行啊
-// two chan是可以的，当然mutex也能做到，一个mutex也能做到
+// two chan是可以的，当然mutex也能做到，一个mutex也能做到(但是要结合state)
 
 func TestPrintByTurnChBlock(t *testing.T) {
 	for i := 0; i < 13; i++ {

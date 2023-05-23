@@ -8,6 +8,13 @@ type HeapItem interface {
 	Pop() interface{}   // remove and return element Len() - 1.
 }
 
+func Init(h HeapItem) {
+	n := h.Len()
+	for i := n/2 - 1; i >= 0; i-- {
+		down(h, i, n)
+	}
+}
+
 func Pop(h HeapItem) interface{} {
 	n := h.Len() - 1
 	// 交换堆最顶与最低元素，此时最大堆最上面为最小值

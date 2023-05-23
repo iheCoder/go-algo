@@ -77,7 +77,7 @@ func TestTPAsIndex(t *testing.T) {
 	}
 
 	for i, td := range tds {
-		r := findDuplicate(td.nums)
+		r := findDuplicateBefore(td.nums)
 		if r != td.expected {
 			t.Fatalf("index %d expect %v got %v", i, td.expected, r)
 		}
