@@ -1,6 +1,6 @@
 package jump_game1
 
-func jump(nums []int) int {
+func jumpFromLeftToRight(nums []int) int {
 	n := len(nums)
 	maxPos := 0
 	end := 0
