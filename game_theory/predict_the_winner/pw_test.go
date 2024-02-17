@@ -48,7 +48,7 @@ func TestPW(t *testing.T) {
 }
 
 func TestGenRandNums(t *testing.T) {
-	r := genRandNums(100000, 3000)
+	r := genRandNums(50000, 1000000000)
 	var ss []string
 	for _, i := range r {
 		ss = append(ss, strconv.Itoa(i))
@@ -83,9 +83,9 @@ func genRandNums(n, limit int) []int {
 		//if sig != 1 {
 		//	x = -x
 		//}
-		for x == 0 {
-			x = rand.Intn(limit)
-		}
+		//for x == 0 {
+		//	x = rand.Intn(limit)
+		//}
 		r = append(r, x)
 	}
 	return r
@@ -135,4 +135,32 @@ func genUniqueRandNums(n, limit int) []int {
 		r[i], r[j] = r[j], r[i]
 	}
 	return r[:n]
+}
+
+func TestGenSortedArray(t *testing.T) {
+	r := genSortedArray(50000, 5, true)
+	var ss []string
+	for _, i := range r {
+		ss = append(ss, strconv.Itoa(i))
+	}
+	t.Log(strings.Join(ss, ","))
+}
+
+func genSortedArray(n, p int, reverse bool) []int {
+	//rand.Seed(time.Now().Unix())
+	nums := make([]int, n)
+	for i := 0; i < n; i++ {
+		//x := rand.Intn(p)
+		//if x == 0 {
+		//	nums[i] = i - 1
+		//} else {
+		//	nums[i] = i
+		//}
+		if reverse {
+			nums[i] = n - i
+		} else {
+			nums[i] = i
+		}
+	}
+	return nums
 }

@@ -61,8 +61,23 @@ func (g *graph) existDepend() bool {
 }
 
 func eraseOverlapIntervals(intervals [][]int) int {
+	n := len(intervals)
+	if n == 0 {
+		return 0
+	}
+
 	sort.Slice(intervals, func(i, j int) bool {
-		return intervals[i][0] < intervals[j][0] || (intervals[i][0] == intervals[j][0] && intervals[i][1] < intervals[j][1])
+		return intervals[i][1] <= intervals[j][1]
 	})
 
+	right := intervals[0][1]
+	num := 1
+	for i := 1; i < len(intervals); i++ {
+		if intervals[i][0] >= right {
+			num++
+			right = intervals[i][1]
+		}
+	}
+
+	return n - num
 }

@@ -6,7 +6,7 @@ type unionFinder struct {
 	rank   []int
 }
 
-func NewUF(grid [][]byte) *unionFinder {
+func newUF(grid [][]byte) *unionFinder {
 	count := 0
 	m := len(grid)
 	n := len(grid[0])
@@ -63,7 +63,7 @@ func numIslands(grid [][]byte) int {
 
 	nr := len(grid)
 	nc := len(grid[0])
-	uf := NewUF(grid)
+	uf := newUF(grid)
 	for i := 0; i < nr; i++ {
 		for j := 0; j < nc; j++ {
 			if grid[i][j] == '1' {
