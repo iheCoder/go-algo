@@ -48,6 +48,43 @@ func TestLM4P(t *testing.T) {
 	}
 }
 
+func TestImtos(t *testing.T) {
+	tds := []testData{
+		{
+			"abcabc",
+			"abdcaba",
+			"abdcabcabcaba",
+		},
+		{
+			"cabaa",
+			"bcaaa",
+			"cbcabaaaaa",
+		},
+		{
+			"a",
+			"a",
+			"aa",
+		},
+		{
+			"bcd",
+			"bcdbcddaa",
+			"bcdbcddbcdaa",
+		},
+		{
+			"uuurruuuruuuuuuuuruuuuu",
+			"urrrurrrrrrrruurrrurrrurrrrruu",
+			"uuuurruuuruuuuuuuuruuuuurrrurrrrrrrruurrrurrrurrrrruu",
+		},
+	}
+
+	for i, td := range tds {
+		r := largestMerge(td.word1, td.word2)
+		if !reflect.DeepEqual(td.expected, r) {
+			t.Fatalf("index %d expect %v got %v", i, td.expected, r)
+		}
+	}
+}
+
 func TestComputeCharClasses(t *testing.T) {
 	s := "hello"
 	//order := sortChars(s)

@@ -21,7 +21,7 @@ func factorialInt(n int) int {
 	return r
 }
 
-func findDuplicate(nums []int) int {
+func findDuplicateBefore(nums []int) int {
 	var slow, fast int
 	slow = nums[slow]
 	fast = nums[nums[fast]]
