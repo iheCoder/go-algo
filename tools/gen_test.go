@@ -9,7 +9,7 @@ import (
 )
 
 func TestGenNums(t *testing.T) {
-	t.Log(genNumsStr(10000, 100000))
+	t.Log(genNumsStr(10000, 10000))
 }
 
 func genNumsStr(n, limit int) string {
@@ -26,7 +26,7 @@ func genRandNums(n, limit int) []int {
 	r := make([]int, 0, n)
 	for i := 0; i < n; i++ {
 		x := rand.Intn(limit)
-		for x == 0 {
+		for x < 0 {
 			x = rand.Intn(limit)
 		}
 		//if rand.Int()%2 == 1 {

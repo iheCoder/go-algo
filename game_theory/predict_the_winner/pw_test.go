@@ -48,7 +48,7 @@ func TestPW(t *testing.T) {
 }
 
 func TestGenRandNums(t *testing.T) {
-	r := genRandNums(50000, 1000000000)
+	r := genRandNums(30000, 30000)
 	var ss []string
 	for _, i := range r {
 		ss = append(ss, strconv.Itoa(i))
@@ -79,10 +79,10 @@ func genRandNums(n, limit int) []int {
 	for i := 0; i < n; i++ {
 		x := rand.Intn(limit)
 		//x:=1
-		//sig := rand.Intn(2)
-		//if sig != 1 {
-		//	x = -x
-		//}
+		sig := rand.Intn(2)
+		if sig != 1 {
+			x = -x
+		}
 		//for x == 0 {
 		//	x = rand.Intn(limit)
 		//}
@@ -92,7 +92,7 @@ func genRandNums(n, limit int) []int {
 }
 
 func TestGenRandStr(t *testing.T) {
-	n, limit := 1, 1000
+	n, limit := 1, 100000
 	r := genRandStr(n, limit)
 	for i := 0; i < len(r); i++ {
 		r[i] = "\"" + r[i] + "\""
