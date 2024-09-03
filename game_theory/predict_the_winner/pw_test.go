@@ -48,10 +48,10 @@ func TestPW(t *testing.T) {
 }
 
 func TestGenRandNums(t *testing.T) {
-	r := genRandNums(30000, 30000)
+	r := genRandNums(60000, 500)
 	var ss []string
 	for _, i := range r {
-		ss = append(ss, strconv.Itoa(i))
+		ss = append(ss, strconv.Itoa(i+1))
 	}
 	t.Log(strings.Join(ss, ","))
 }
@@ -79,10 +79,10 @@ func genRandNums(n, limit int) []int {
 	for i := 0; i < n; i++ {
 		x := rand.Intn(limit)
 		//x:=1
-		sig := rand.Intn(2)
-		if sig != 1 {
-			x = -x
-		}
+		//sig := rand.Intn(2)
+		//if sig != 1 {
+		//	x = -x
+		//}
 		//for x == 0 {
 		//	x = rand.Intn(limit)
 		//}
