@@ -48,7 +48,7 @@ func TestPW(t *testing.T) {
 }
 
 func TestGenRandNums(t *testing.T) {
-	r := genRandNums(60000, 500)
+	r := genRandNums(1000, 1000)
 	var ss []string
 	for _, i := range r {
 		ss = append(ss, strconv.Itoa(i+1))
