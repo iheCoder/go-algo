@@ -40,7 +40,7 @@ func TestPW(t *testing.T) {
 		},
 	}
 	for i, td := range tds {
-		got := PredictTheWinner(td.nums)
+		got := predictTheWinner(td.nums)
 		if td.expected != got {
 			t.Fatalf("%d nums %d expected %v got %v", i, td.nums, td.expected, got)
 		}
